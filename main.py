@@ -8,9 +8,13 @@ import pandas as pd # also install openpyxl
 import fitz  # install PyMuPDF
 
 # Constants for file paths and reporting
-source_folder = r"C:\Users\match\Downloads"  # The folder to be searched for PDFs with HRMS data
-destination_folder = r"C:\Users\match\Desktop" # The folder for the report is saved if write_report = True
-write_report = False # If True, a report is written as Excel file to destination_folder; if False, no report is written
+source_folder = f'{input("Enter the path to the source folder containing PDF files with HRMS data: ")}'
+# destination_folder = f'{input("Enter the path to the destination folder for reports: ")}'
+# source_folder = r"/Users/mx23826/Documents/HRMSChecker"  # The folder to be searched for PDFs with HRMS data
+destination_folder = f'{source_folder}/HRMS_report' # The folder for the report is saved if write_report = True
+
+check_write_report = input("Do you want to write a report? (y/n): ").strip().lower()
+write_report = check_write_report == 'y' # If True, a report is written as Excel file to destination_folder; if False, no report is written
 
 
 def check_conditions(cleaned_results):
