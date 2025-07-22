@@ -1,2 +1,17 @@
 build/*
 dist/*
+*.zip
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.pytest_cache/
+.coverage
+.env
+.venv/
+env/
+venv/
+*.egg-info/
+.DS_Store
