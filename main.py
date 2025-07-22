@@ -8,13 +8,12 @@ import pandas as pd # also install openpyxl
 import fitz  # install PyMuPDF
 
 # Constants for file paths and reporting
-source_folder = f'{input("Enter the path to the source folder containing PDF files with HRMS data: ")}'
+# source_folder = f'{input("Enter the path to the source folder containing PDF files with HRMS data: ")}'
 # destination_folder = f'{input("Enter the path to the destination folder for reports: ")}'
 # source_folder = r"/Users/mx23826/Documents/HRMSChecker"  # The folder to be searched for PDFs with HRMS data
-destination_folder = f'{source_folder}/HRMS_report' # The folder for the report is saved if write_report = True
+# destination_folder = f'{source_folder}/HRMS_report' # The folder for the report is saved if write_report = True
 
-check_write_report = input("Do you want to write a report? (y/n): ").strip().lower()
-write_report = check_write_report == 'y' # If True, a report is written as Excel file to destination_folder; if False, no report is written
+# check_write_report = input("Do you want to write a report? (y/n): ").strip().lower()
 
 
 def check_conditions(cleaned_results):
@@ -717,8 +716,8 @@ def generate_error_dictionary(element_list, counts_range, special_cases=None):
 
 # Define special cases like electron mass error
 special_errors = {
-    '0.0005': "Electron mass error",
-    '0.0006': "Electron mass error",
+    # '0.0005': "Electron mass error",
+    # '0.0006': "Electron mass error",
     '0.0073': "Nominal mass error (H=1.0000)?",
     '0.0072': "Nominal mass error (H=1.0000)?",
     '0.0071': "Nominal mass error (H=1.0000)?",
@@ -1086,7 +1085,7 @@ def print_aligned_table(cleaned_results, pdf_file_path):
     highlighting deviations greater than 10 ppm in red and error messages in purple.
     Also exports the table to an Excel file named based on the pdf_file_path.
     """
-    headers = ['Formula', 'Ion', 'Calcd Mass', 'Found Mass', 'Recalcd Mass', 'Dev (Calcd)', 'Dev (Recalcd)', 'Error']
+    headers = ['Formula', 'Ion', 'Calcd Mass', 'Found Mass', 'Recalcd Mass', 'Dev (Calcd)', 'Dev (Recalcd)', 'Potential error']
 
     # Calculate column widths for all columns, including the new 'Error' column
     col_widths = [max(len(str(row[i])) for row in [headers] + cleaned_results) for i in range(8)]
