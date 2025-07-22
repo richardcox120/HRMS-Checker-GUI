@@ -14,4 +14,4 @@ __pycache__/
 env/
 venv/
 *.egg-info/
-.DS_Store
+.DS_Store*.zip
